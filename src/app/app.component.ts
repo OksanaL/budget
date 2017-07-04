@@ -2,8 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
+import { DataPage } from '../pages/data/data';
+import { PicturesPage } from '../pages/pictures/pictures';
+// import { CategoriesPage } from '../pages/categories/categories';
+// import { GroupsPage } from '../pages/groups/groups';
+// import { ReportsPage } from '../pages/reports/reports';
+// import { SettingsPage } from '../pages/settings/settings';
+// import { LogOutPage } from '../pages/log-out/log-out';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = DataPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -29,8 +34,12 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Pictures', component: PicturesPage },
+      { title: 'Categories', component: 'CategoriesPage' },
+      { title: 'Groups', component: 'GroupsPage' },
+      { title: 'Reports', component: 'ReportsPage' },
+      { title: 'Settings', component: 'SettingsPage' },
+      { title: 'Log out', component: 'LogOutPage' }
     ];
   }
 
@@ -48,5 +57,9 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  goBack(){
+    this.menu.close();
   }
 }
