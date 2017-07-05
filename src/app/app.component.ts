@@ -4,10 +4,10 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { DataPage } from '../pages/data/data';
 import { PicturesPage } from '../pages/pictures/pictures';
-// import { CategoriesPage } from '../pages/categories/categories';
-// import { GroupsPage } from '../pages/groups/groups';
-// import { ReportsPage } from '../pages/reports/reports';
-// import { SettingsPage } from '../pages/settings/settings';
+import { CategoriesPage } from '../pages/categories/categories';
+import { GroupsPage } from '../pages/groups/groups';
+import { ReportsPage } from '../pages/reports/reports';
+import { SettingsPage } from '../pages/settings/settings';
 // import { LogOutPage } from '../pages/log-out/log-out';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -34,12 +34,13 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+      { title: 'Data', component: this.rootPage },
       { title: 'Pictures', component: PicturesPage },
-      { title: 'Categories', component: 'CategoriesPage' },
-      { title: 'Groups', component: 'GroupsPage' },
-      { title: 'Reports', component: 'ReportsPage' },
-      { title: 'Settings', component: 'SettingsPage' },
-      { title: 'Log out', component: 'LogOutPage' }
+      { title: 'Categories', component: CategoriesPage },
+      { title: 'Groups', component: GroupsPage },
+      { title: 'Reports', component: ReportsPage },
+      { title: 'Settings', component: SettingsPage },
+      { title: 'Log out', component: this.rootPage }
     ];
   }
 
@@ -57,9 +58,5 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
-  }
-
-  goBack(){
-    this.menu.close();
   }
 }

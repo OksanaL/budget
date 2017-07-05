@@ -21,16 +21,16 @@
     </ion-row>
     <ion-row *ngFor="let gridItem of gridData">
       <ion-col>
-        <ion-title>{{gridItem.date}}</ion-title>
+        <ion-title>{{ gridItem.date }}</ion-title>
       </ion-col>
 
       <ion-grid>
         <ion-row *ngFor="let itemData of gridItem.data">
           <ion-col>
-            <ion-title>{{itemData.name}}</ion-title>
+            <ion-title>{{ itemData.name }}</ion-title>
           </ion-col>
           <ion-col>
-            <ion-title>{{itemData.sum}}</ion-title>
+            <ion-title>{{ itemData.sum }}</ion-title>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -38,5 +38,12 @@
     </ion-row>
 
 </ion-grid>
+
+<ion-buttons class="data-buttons">
+  <button ion-button (click)="goToOtherPage(button.component)" *ngFor="let button of buttons">
+    <!--<ion-icon name="add-circle"></ion-icon>-->
+    {{ button.name }}
+  </button>
+</ion-buttons>
 
 </ion-content>

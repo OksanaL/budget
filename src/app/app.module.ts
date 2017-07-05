@@ -5,13 +5,13 @@ import { MyApp } from './app.component';
 
 import { DataPage } from '../pages/data/data';
 import { PicturesPage } from '../pages/pictures/pictures';
-// import { CategoriesPage } from '../pages/categories/categories';
-// import { GroupsPage } from '../pages/groups/groups';
-// import { ReportsPage } from '../pages/reports/reports';
-// import { SettingsPage } from '../pages/settings/settings';
-// import { LogOutPage } from '../pages/log-out/log-out';
-
-import { AddPage } from '../pages/add/add';
+import { CategoriesPage } from '../pages/categories/categories';
+import { GroupsPage } from '../pages/groups/groups';
+import { ReportsPage } from '../pages/reports/reports';
+import { SettingsPage } from '../pages/settings/settings';
+import { FilterPage } from '../pages/filter/filter';
+import { AddRowPage } from '../pages/add-row/add-row';
+import { AddPicturePage } from '../pages/add-picture/add-picture';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,14 +19,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    AddPage,
+    AddRowPage,
+    AddPicturePage,
     DataPage,
-    PicturesPage
-    // CategoriesPage
-    // GroupsPage
-    // ReportsPage
-    // SettingsPage
-    // LogOutPage
+    PicturesPage,
+    CategoriesPage,
+    GroupsPage,
+    ReportsPage,
+    SettingsPage,
+    FilterPage
   ],
   imports: [
     BrowserModule,
@@ -35,14 +36,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AddPage,
+    AddRowPage,
+    AddPicturePage,
     DataPage,
-    PicturesPage
-    // CategoriesPage
-    // GroupsPage
-    // ReportsPage
-    // SettingsPage
-    // LogOutPage
+    PicturesPage,
+    CategoriesPage,
+    GroupsPage,
+    ReportsPage,
+    SettingsPage,
+    FilterPage
+
   ],
   providers: [
     StatusBar,

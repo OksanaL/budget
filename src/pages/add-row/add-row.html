@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>sum</ion-label>
+      <ion-input type="number" value=""></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>Picture (0)</ion-item>
+  <ion-item>Notice (1)</ion-item>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list radio-group>
+    <ion-item *ngFor="let group of groups">
+      {{ group.name }}
+      <ion-list>
+        <ion-item *ngFor="let category of group.categories">
+          <ion-label>{{ category }}</ion-label>
+          <ion-radio checked="false" value=""></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
