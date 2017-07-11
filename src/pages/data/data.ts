@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
+import * as _  from 'lodash';
 
-import { GridData, Buttons } from '../pages-data';
+import { GridData, DataButtons } from '../pages-data';
 
 @Component({
   selector: 'data-budget',
@@ -16,8 +17,8 @@ export class DataPage {
   }
 
   initializeData() {
-    this.gridData = GridData;
-    this.buttons = Buttons;
+    this.gridData = _.cloneDeep(GridData);
+    this.buttons = _.cloneDeep(DataButtons);
   }
 
   goToOtherPage(page) {

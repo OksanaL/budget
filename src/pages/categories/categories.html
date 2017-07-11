@@ -7,8 +7,34 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
 
+  <form (submit)="doSubmit($event,addFromExistingCategoryForm)" [formGroup]="addFromExistingCategoryForm">
+    <ion-item>
+      <ion-label>Existing</ion-label>
+      <ion-select formControlName="category">
+        <ion-option *ngFor="let categoryOption of categoryOptions" [value]="categoryOption"></ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button type="submit" block>Add</button>
+  </form>
+
+  <form (submit)="doSubmit($event, addCustomCategoryForm)" [formGroup]="addCustomCategoryForm">
+    <ion-item>
+      <ion-input type="text" value="" placeholder="category name" formControlName="category"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Add</button>
+  </form>
+
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-list radio-group>
+    <ion-item-group *ngFor="let category of categories">
+      <ion-item>
+        {{ category }}
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 
 </ion-content>

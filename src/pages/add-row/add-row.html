@@ -7,29 +7,39 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-list>
+
+  <ion-item-group>
+    <ion-item>Picture (0)</ion-item>
+    <ion-item>Notice (1)</ion-item>
+  </ion-item-group>
+
+  <form (submit)="doSubmit($event)" [formGroup]="addRowForm">
+
     <ion-item>
-      <ion-label>sum</ion-label>
-      <ion-input type="number" value=""></ion-input>
+      <ion-input type="number" value="" placeholder="Sum" formControlName="sum"></ion-input>
     </ion-item>
-  </ion-list>
 
-  <ion-item>Picture (0)</ion-item>
-  <ion-item>Notice (1)</ion-item>
-
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list radio-group>
-    <ion-item *ngFor="let group of groups">
-      {{ group.name }}
-      <ion-list>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    
+    <ion-list radio-group formControlName="category">
+      <ion-item-group *ngFor="let group of groups">
+        <ion-item-divider color="light">{{ group.name }}</ion-item-divider>
         <ion-item *ngFor="let category of group.categories">
           <ion-label>{{ category }}</ion-label>
-          <ion-radio checked="false" value=""></ion-radio>
+          <ion-radio value="{{ category }}"></ion-radio>
         </ion-item>
-      </ion-list>
-    </ion-item>
-  </ion-list>
+      </ion-item-group>
+    </ion-list>
+
+    <button ion-button type="submit" block>OK</button>
+  </form>
+
+  <ion-buttons class="add-row-buttons">
+  <button ion-button (click)="goToOtherPage(button.component)" *ngFor="let button of buttons">
+    <!--<ion-icon name="add-circle"></ion-icon>-->
+    {{ button.name }}
+  </button>
+</ion-buttons>
 
 </ion-content>
