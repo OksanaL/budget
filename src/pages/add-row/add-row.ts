@@ -3,7 +3,7 @@ import { NavController} from 'ionic-angular';
 
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import * as _  from 'lodash';
-import { Groups, AddRowButtons } from '../pages-data';
+import { Groups, AddRowTopButtons } from '../pages-data';
 
 @Component({
   selector: 'add-row-budget',
@@ -12,9 +12,9 @@ import { Groups, AddRowButtons } from '../pages-data';
 
 export class AddRowPage {
 
-  buttons: Array<any>;
+  topButtons: Array<any>;
   groups: Array<any>;
-  private addRowForm : FormGroup;
+  addRowForm : FormGroup;
 
   constructor(public navCtrl: NavController, private formBuilder: FormBuilder) {
     this.initializeData();
@@ -27,7 +27,7 @@ export class AddRowPage {
 
   initializeData() {
     this.groups = _.cloneDeep(Groups);
-    this.buttons = _.cloneDeep(AddRowButtons);
+    this.topButtons = _.cloneDeep(AddRowTopButtons);
   }
 
   getItems(ev: any) {

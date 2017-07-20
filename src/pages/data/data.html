@@ -4,46 +4,37 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Data</ion-title>
+    <ion-buttons class="data-top-buttons" right>
+      <button ion-button clear icon-only (click)="goToOtherPage(button.component)" *ngFor="let button of topButtons">
+        <ion-icon name="{{button.icon}}"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-title>category</ion-title>
-      </ion-col>
-      <ion-col>
-        <ion-title>sum</ion-title>
-      </ion-col>
+  <ion-item class="grid-item">
+    <ion-row class="grid-title">
+      <ion-col>category</ion-col>
+      <ion-col>sum</ion-col>
     </ion-row>
-    <ion-row *ngFor="let gridItem of gridData">
-      <ion-col>
-        <ion-title>{{ gridItem.date }}</ion-title>
-      </ion-col>
-
-      <ion-grid>
-        <ion-row *ngFor="let itemData of gridItem.data">
-          <ion-col>
-            <ion-title>{{ itemData.name }}</ion-title>
-          </ion-col>
-          <ion-col>
-            <ion-title>{{ itemData.sum }}</ion-title>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      
+  </ion-item>
+  <ion-item class="grid-item" *ngFor="let gridItem of gridData">
+    <ion-row class="grid-item-date">
+      <ion-col>{{ gridItem.date }}</ion-col>
     </ion-row>
 
-</ion-grid>
-
-<ion-buttons class="data-buttons">
-  <button ion-button (click)="goToOtherPage(button.component)" *ngFor="let button of buttons">
-    <!--<ion-icon name="add-circle"></ion-icon>-->
-    {{ button.name }}
-  </button>
-</ion-buttons>
+    <ion-row class="grid-item-data" *ngFor="let itemData of gridItem.data">
+          <ion-col>{{ itemData.name }}</ion-col>
+          <ion-col>{{ itemData.sum }}</ion-col>
+    </ion-row>
+  </ion-item>
 
 </ion-content>
+ 
+<ion-buttons class="data-add-button">
+  <button ion-button clear icon-only (click)="goToOtherPage(addButton.component)">
+    <ion-icon name="{{addButton.icon}}"></ion-icon>
+  </button>
+</ion-buttons>

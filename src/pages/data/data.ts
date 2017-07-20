@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import * as _  from 'lodash';
 
-import { GridData, DataButtons } from '../pages-data';
+import { GridData, DataAddButton, DataTopButtons } from '../pages-data';
 
 @Component({
   selector: 'data-budget',
   templateUrl: 'data.html'
 })
 export class DataPage {
-  gridData: Array<Object>;
-  buttons: Array<Object>;
+  gridData: Array<any>;
+  addButton: any;
+  topButtons: Array<any>;
 
   constructor(public navCtrl: NavController) {
     this.initializeData();
@@ -18,7 +19,8 @@ export class DataPage {
 
   initializeData() {
     this.gridData = _.cloneDeep(GridData);
-    this.buttons = _.cloneDeep(DataButtons);
+    this.addButton = _.cloneDeep(DataAddButton);
+    this.topButtons = _.cloneDeep(DataTopButtons);
   }
 
   goToOtherPage(page) {
