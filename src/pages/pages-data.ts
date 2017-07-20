@@ -13,38 +13,39 @@ import { FilterPage } from '../pages/filter/filter';
 //data page
 //-----
 var GridData = [
-    {'date': '25.06.17',
-     'data': [
-        {'name': 'category1', 'sum': 45.98},
-        {'name': 'category1', 'sum': 600.56},
-        {'name': 'category2', 'sum': 15.5},
-        {'name': 'category3', 'sum': 5}
-      ]
-    },
-    {'date': '24.06.17',
-     'data': [
-        {'name': 'category1', 'sum': 456.05},
-        {'name': 'category2', 'sum': 78.5}
-       
-      ]
-    },
-    {'date': '23.06.17',
-     'data': [
-        {'name': 'category2', 'sum': 457.9},
-        {'name': 'category1', 'sum': 60.56},
-        {'name': 'category2', 'sum': 5.5}
-      ]
-    },
-  ];
+  {date: '25.06.17',
+    data: [
+      {name: 'category1', sum: 45.98},
+      {name: 'category1', sum: 600.56},
+      {name: 'category2', sum: 15.5},
+      {name: 'category3', sum: 5}
+    ]
+  },
+  {date: '24.06.17',
+    data: [
+      {name: 'category1', sum: 456.05},
+      {name: 'category2', sum: 78.5}
+      
+    ]
+  },
+  {date: '23.06.17',
+    data: [
+      {name: 'category2', sum: 457.9},
+      {name: 'category1', sum: 60.56},
+      {name: 'category2', sum: 5.5}
+    ]
+  },
+];
 
-let DataButtons = [
-    {'name': 'addRow', 'icon': 'icon1', 'component': AddRowPage},
-    {'name': 'addPic', 'icon': 'icon2', 'component': AddPicturePage},
-    {'name': 'addCat', 'icon': 'icon3', 'component': CategoriesPage},
-    {'name': 'filter', 'icon': 'icon4', 'component': FilterPage}
-  ]
+let DataAddButton = {name: 'addRow', icon: 'add-circle', component: AddRowPage};
 
-export { GridData, DataButtons };
+let DataTopButtons = [
+  {name: 'addPic', icon: 'image', component: AddPicturePage},
+  {name: 'addCat', icon: 'list', component: CategoriesPage},
+  {name: 'filter', icon: 'funnel', component: FilterPage}
+]
+
+export { GridData, DataAddButton, DataTopButtons };
 
 //--------------------------------------------------------------
 
@@ -53,33 +54,36 @@ export { GridData, DataButtons };
 //-----
 
 let Groups = [
-      {'name': 'group1',
-       'categories': [
-          'category1',
-          'category2',
-          'category3'
-        ]
-      },
-      {'name': 'group2',
-       'categories': [
-          'category4'
-        ]
-      },
-      {'name': 'group3',
-       'categories': [
-          'category5',
-          'category6'
-      ]
-    }];
+  {name: 'group1',
+    categories: [
+      'category1',
+      'category2',
+      'category3'
+    ]
+  },
+  {name: 'group2',
+    categories: [
+      'category4'
+    ]
+  },
+  {name: 'group3',
+    categories: [
+      'category5',
+      'category6'
+  ]
+}];
   
-let AddRowButtons = [
-    {'name': 'addPic', 'icon': 'icon2', 'component': AddPicturePage},
-    {'name': 'addCat', 'icon': 'icon3', 'component': CategoriesPage},
-    {'name': 'addExistingPic', 'icon': 'icon2', 'component': PicturesPage},
-    {'name': 'addGroup', 'icon': 'icon3', 'component': GroupsPage},
+let AddRowTopButtons = [
+    {name: 'addPic', icon: 'image', component: AddPicturePage},
+    {name: 'addCat', icon: 'list', component: CategoriesPage},
+    {name: 'addGroup', icon: 'albums', component: GroupsPage}
 ]
 
-export { Groups, AddRowButtons };
+let AddRowOptionButtons = [
+  {name: 'addExistingPic', icon: 'icon2', component: PicturesPage}
+]
+
+export { Groups, AddRowTopButtons };
 
 //--------------------------------------------------------------
 
