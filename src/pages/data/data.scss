@@ -1,5 +1,5 @@
-ion-content {
-    font-family: "Open Sans",Arial,sans-serif;
+ion-navbar.header > div{
+    background-color: #FFC43A;
 }
 
 .data-top-buttons {
@@ -16,6 +16,7 @@ ion-content {
     button {
         font-size: 35px;
         height: 55px;
+        color: #FFC43A;
         margin: 0 15px 15px 0;
 
         ion-icon {
@@ -24,11 +25,38 @@ ion-content {
     }
 }
 
-.grid-item {
-    padding: 0 15px 0 15px;
-}
+div.grid-item {
+    padding: 0;
 
-.grid-title,
-.grid-item-data {
-    margin: 0 0 0 20px;
+    &:nth-child(2n) {
+        background: #E6E6E6; /* Цвет фона */
+    }
+    &:nth-child(1) {
+        background: #62BEFC; /* Цвет фона */
+        color: #fff; /* Цвет текста */
+    }
+
+    ion-row.grid-title,
+    ion-row.grid-item-data,
+    ion-row.grid-item-more {
+        margin: 0 0 0 40px;
+
+        ion-col {
+            flex-basis: 30px;
+            flex-grow: 8;
+            align-self: center;
+
+            &:last-child {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    ion-row.grid-title{
+        font-size: x-large;
+    }
+
+    ion-row.grid-item-date {
+        margin: 0 0 0 20px;
+    }
 }

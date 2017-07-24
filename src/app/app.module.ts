@@ -4,6 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { DataPage } from '../pages/data/data';
+import { GridSettingsPopoverPage } from '../pages/data/grid-settings/grid-settings-popover';
+import { ChangeViewNumberPipe } from '../pages/data/data-pipe';
+
 import { PicturesPage } from '../pages/pictures/pictures';
 import { CategoriesPage } from '../pages/categories/categories';
 import { GroupsPage } from '../pages/groups/groups';
@@ -22,6 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AddRowPage,
     AddPicturePage,
     DataPage,
+    GridSettingsPopoverPage,
+    ChangeViewNumberPipe,
     PicturesPage,
     CategoriesPage,
     GroupsPage,
@@ -39,6 +44,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AddRowPage,
     AddPicturePage,
     DataPage,
+    GridSettingsPopoverPage,
     PicturesPage,
     CategoriesPage,
     GroupsPage,
