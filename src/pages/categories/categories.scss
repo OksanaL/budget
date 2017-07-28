@@ -1,3 +1,67 @@
-page-hello-ionic {
+ion-navbar.header > div{
+    background-color: #FFC43A;
+}
 
+form.cat-custom {
+    display: flex;
+    align-items: center;
+
+    button.cat-submit {
+        flex: 1;
+        color: #FFC43A;
+    }
+    ion-item.cat-custom-value {
+        flex: 5;
+        margin: 15px 0 0 0;
+        ion-input > input {
+            margin: 0 0 0 16px;
+        }
+    }
+}
+
+form.cat-existing {
+    display: flex;
+    align-items: center;
+
+    button.cat-submit {
+        flex: 1;
+        color: #FFC43A;
+    }
+    ion-item.cat-existing-value {
+        flex: 5;
+        ion-select {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+ion-searchbar.search {
+    margin: 15px 0 0 0;
+
+    > div {
+        > input.searchbar-input {
+            box-shadow: none;
+            border-bottom: 1px solid grey;
+        }
+    }
+}
+
+ion-item.cat-custom-value,
+ion-item.cat-existing-value {
+    padding: 0;
+}
+
+ion-item-group.categories-added {
+
+    div.category-added {
+        display: flex;
+        height: 43px;
+        align-items: center;
+        padding: 0 0 0 16px;
+
+        &:nth-child(2n-1) {
+            background: #f4f4f4; /* Цвет фона */
+        }
+    }
 }

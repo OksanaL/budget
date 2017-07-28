@@ -1,3 +1,11 @@
+ion-navbar.header > div{
+    background-color: #FFC43A;
+}
+
+div#place {
+    height: 40px;
+}
+
 .add-row-top-buttons {
     button {
         margin: 0 20px 0 0;
@@ -7,16 +15,49 @@
     }
 }
 
-.add-row-submit {
-    // position: fixed;
-    // bottom: 0;
-    // right: 0;
-    // left: 0;
-    // margin: 0 15px 15px 15px;
-    // font-size: 35px;
-    // height: 55px;
-    // margin: 0 15px 15px 0;
-    // ion-icon {
-    //     padding: 0;
-    // }
+.add-row-details {
+    margin: 15px 0 0 0;
+}
+
+.submit {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999999;
+
+    .add-row-submit {
+        margin: auto;
+        width: 55px;
+        button {
+            font-size: 35px;
+            height: 55px;
+            width: 55px;
+            margin: 0 0 15px 0;
+            color: #FFC43A;
+
+            ion-icon {
+                padding: 0;
+            }
+        }
+    }
+}
+
+.add-row-sum {
+    padding: 0;
+
+    input {
+        font-size: 55px;
+        text-align: center;
+    }
+}
+
+ion-searchbar.search-cat > div > input.searchbar-input {
+    box-shadow: none;
+    border-bottom: 1px solid grey;
+}
+
+ion-searchbar.search-cat {
+    margin: 0;
 }

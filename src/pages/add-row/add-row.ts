@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
 import { NavController} from 'ionic-angular';
-
+import * as _           from 'lodash';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import * as _  from 'lodash';
-import { Groups, AddRowTopButtons } from '../pages-data';
+import { Groups, AddRowTopButtons }           from '../pages-data';
+import { DataPageService }                    from '../data/services/data.service';
 
 @Component({
   selector: 'add-row-budget',
-  templateUrl: 'add-row.html'
+  templateUrl: 'add-row.html',
+  // providers: [DataPageService]
 })
 
 export class AddRowPage {
@@ -16,12 +17,14 @@ export class AddRowPage {
   groups: Array<any>;
   addRowForm : FormGroup;
 
-  constructor(public navCtrl: NavController, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+              private formBuilder: FormBuilder,
+              private dataPageService: DataPageService) {
     this.initializeData();
 
     this.addRowForm = this.formBuilder.group({
       sum: ['', Validators.required],
-      category: [''],
+      name: [''],
     });
   }
 
@@ -30,11 +33,21 @@ export class AddRowPage {
     this.topButtons = _.cloneDeep(AddRowTopButtons);
   }
 
+  goToOtherPage(page) {
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
+    this.navCtrl.push(page);
+  }
+
+  initFilterData () {
+    this.groups = _.cloneDeep(Groups);
+  }
+  
   getItems(ev: any) {
     // set val to the value of the searchbar
     let val = ev.target.value;
     //Reset items back to all of the items
-    this.initializeData();
+    this.initFilterData();
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
@@ -52,13 +65,15 @@ export class AddRowPage {
   }
 
   doSubmit(event) {
-    console.log('Submitting form', this.addRowForm.value);
-    event.preventDefault();
+    // console.log('Submitting form', this.addRowForm.value);
+    // event.preventDefault();
+
+    /**
+     * TODO:save data in db
+     * implement come back to data page
+     */
+    this.dataPageService.addRow(this.addRowForm.value);
+
   }
 
-  goToOtherPage(page) {
-    //push another page onto the history stack
-    //causing the nav controller to animate the new page in
-    this.navCtrl.push(page);
-  }
 }

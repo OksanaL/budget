@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { DataPage } from '../pages/data/data';
 import { GridSettingsPopoverPage } from '../pages/data/grid-settings/grid-settings-popover';
 import { ChangeViewNumberPipe } from '../pages/data/data-pipe';
+import { DataPageService }                 from '../pages/data/services/data.service';
 
 import { PicturesPage } from '../pages/pictures/pictures';
 import { CategoriesPage } from '../pages/categories/categories';
@@ -56,7 +57,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataPageService
   ]
 })
 export class AppModule {}

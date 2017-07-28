@@ -1,7 +1,7 @@
 import { AddRowPage } from '../pages/add-row/add-row';
 import { AddPicturePage } from '../pages/add-picture/add-picture';
 // import { DataPage } from '../pages/data/data';
-import { PicturesPage } from '../pages/pictures/pictures';
+// import { PicturesPage } from '../pages/pictures/pictures';
 import { CategoriesPage } from '../pages/categories/categories';
 import { GroupsPage } from '../pages/groups/groups';
 // import { ReportsPage } from '../pages/reports/reports';
@@ -21,20 +21,42 @@ var GridData = [
       {name: 'category3', sum: 5}
     ]
   },
-  {date: '24.06.17',
-    data: [
-      {name: 'category1', sum: 456.05},
-      {name: 'category2', sum: 78.5}
+  // {date: '24.06.17',
+  //   data: [
+  //     {name: 'category1', sum: 456.05},
+  //     {name: 'category2', sum: 78.5}
       
-    ]
-  },
-  {date: '23.06.17',
-    data: [
-      {name: 'category2', sum: 457.9},
-      {name: 'category1', sum: 60.56},
-      {name: 'category2', sum: 5.5}
-    ]
-  },
+  //   ]
+  // },
+  // {date: '23.06.17',
+  //   data: [
+  //     {name: 'category2', sum: 457.9},
+  //     {name: 'category1', sum: 60.56},
+  //     {name: 'category2', sum: 5.5}
+  //   ]
+  // },
+  // {date: '25.06.17',
+  //   data: [
+  //     {name: 'category1', sum: 45.98},
+  //     {name: 'category1', sum: 600.56},
+  //     {name: 'category2', sum: 15.5},
+  //     {name: 'category3', sum: 5}
+  //   ]
+  // },
+  // {date: '24.06.17',
+  //   data: [
+  //     {name: 'category1', sum: 456.05},
+  //     {name: 'category2', sum: 78.5}
+      
+  //   ]
+  // },
+  // {date: '23.06.17',
+  //   data: [
+  //     {name: 'category2', sum: 457.9},
+  //     {name: 'category1', sum: 60.56},
+  //     {name: 'category2', sum: 5.5}
+  //   ]
+  // },
 ];
 
 let DataAddButton = {name: 'addRow', icon: 'add-circle', component: AddRowPage};
@@ -79,9 +101,9 @@ let AddRowTopButtons = [
     {name: 'addGroup', icon: 'albums', component: GroupsPage}
 ]
 
-let AddRowOptionButtons = [
-  {name: 'addExistingPic', icon: 'icon2', component: PicturesPage}
-]
+// let AddRowOptionButtons = [
+//   {name: 'addExistingPic', icon: 'icon2', component: PicturesPage}
+// ]
 
 export { Groups, AddRowTopButtons };
 
@@ -101,12 +123,12 @@ let Categories = [
       ];
 
 let ExistingCategoryOptions = [
-          'existing category1',
-          'existing category2',
-          'existing category3',
-          'existing category4',
-          'existing category5',
-          'existing category6'
+          { label: 'existing category1', value: 'existing category1', type: 'radio'},
+          { label: 'existing category2', value: 'existing category2', type: 'radio'},
+          // 'existing category3',
+          // 'existing category4',
+          // 'existing category5',
+          // 'existing category6'
       ];
 
 export { Categories, ExistingCategoryOptions };

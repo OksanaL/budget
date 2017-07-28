@@ -1,11 +1,13 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="header">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Add</ion-title>
     <ion-buttons class="add-row-top-buttons" right>
-      <button ion-button ion-button clear icon-only class="top-buttons" (click)="goToOtherPage(button.component)" *ngFor="let button of topButtons">
+      <button ion-button ion-button clear icon-only class="top-buttons" 
+              (click)="goToOtherPage(button.component)" 
+              *ngFor="let button of topButtons">
         <ion-icon name="{{button.icon}}"></ion-icon>
       </button>
       <button ion-button ion-button clear icon-only>
@@ -19,18 +21,24 @@
 
   <form (submit)="doSubmit($event)" [formGroup]="addRowForm">
 
-    <ion-item>
+    <ion-item class="add-row-sum">
       <ion-input type="number" value="" placeholder="Sum" formControlName="sum"></ion-input>
     </ion-item>
 
-    <ion-item-group>
+    <ion-item-group class="add-row-details">
+      <!--
+        TODO: count pictures & count notice
+          `   make them clickable and add opportunity to watch available pictures and notice
+      -->
       <ion-item>Picture (0)</ion-item>
       <ion-item>Notice (1)</ion-item>
     </ion-item-group>
 
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    
-    <ion-list radio-group formControlName="category">
+    <ion-searchbar class="search-cat" (ionInput)="getItems($event)"></ion-searchbar>
+    <!--
+      TODO: make arrows to collapse separate groupse
+    -->
+    <ion-list radio-group formControlName="name">
       <ion-item-group *ngFor="let group of groups">
         <ion-item-divider color="light">{{ group.name }}</ion-item-divider>
         <ion-item *ngFor="let category of group.categories">
@@ -40,11 +48,17 @@
       </ion-item-group>
     </ion-list>
 
-    <!--<button type="submit" class="add-row-submit" ion-button clear icon-only>
-      <ion-icon name="checkmark-circle"></ion-icon>
-    </button>-->
+    <div id="place"></div>
 
-    <button ion-button block type="submit" class="add-row-submit">OK</button>
+    <div class="submit">
+      <ion-buttons class="add-row-submit">
+        <button type="submit" ion-button clear icon-only>
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+    </div>
+
+    <!--<button ion-button block type="submit" class="add-row-submit">OK</button>-->
 
   </form>
 

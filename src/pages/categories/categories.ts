@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { NavController, AlertController} from 'ionic-angular';
 
 import { /*Validators,*/ FormBuilder, FormGroup } from '@angular/forms';
 import * as _  from 'lodash';
@@ -11,17 +11,15 @@ import { Categories, ExistingCategoryOptions } from '../pages-data';
 })
 export class CategoriesPage {
   
-  private addFromExistingCategoryForm : FormGroup;
-  private addCustomCategoryForm : FormGroup;
+  addCustomCategoryForm : FormGroup;
   categories: Array<string>;
-  categoryOptions: Array<string>;
-
-  constructor(public NavCtrl: NavController, private formBuilder: FormBuilder) {
+  categoryOptions: Array<any>;
+ 
+  constructor(public NavCtrl: NavController, 
+              private formBuilder: FormBuilder,
+              private alertCtrl: AlertController) {
     this.initializeData();
 
-    this.addFromExistingCategoryForm = this.formBuilder.group({
-      category: ['']
-    });
     this.addCustomCategoryForm = this.formBuilder.group({
       category: ['']
     });
@@ -49,5 +47,29 @@ export class CategoriesPage {
   doSubmit(event, form: FormGroup) {
     console.log('Submitting form', form.value);
     event.preventDefault();
+  }
+
+  presentSelectAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Select existing category',
+      inputs: this.categoryOptions,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'ok',
+          role: 'ok',
+          handler: data => {
+            console.log(data);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }
